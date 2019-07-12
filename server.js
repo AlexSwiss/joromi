@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+const events = require('./routes/api/events.js');
+
+
 //bodyParser middleware
 app.use(bodyParser.json());
 
@@ -14,6 +17,10 @@ const db = require('./config/keys').mongoURI;
 mongoose.connect(db)
     .then(() => console.log('Database Connected'))
     .catch(err => console.log(err))
+
+
+//use routes
+app.use('/api/events', events);
 
 const port = process.env.PORT || 5000
 
