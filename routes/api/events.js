@@ -11,4 +11,17 @@ router.get('/', (req, res) => {
         .then(events => res.json(events));
 });
 
+//@router POST api/items
+router.post('/', (req, res) => {
+    const newEvent = new Event ({
+        name: req.body.name,
+        venue: req.body.venue,
+        price: req.body.price
+    });
+    newEvent.save()
+            .then( event => res.json(event));
+});
+
+
+
 module.exports = router;
