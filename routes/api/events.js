@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
             .then( event => res.json(event));
 });
 
-//router DELETE api/events/:id
+//@router DELETE api/events/:id
 router.delete('/:id', (req, res) => {
     Event.findById(req.params.id)
         .then(event => event.remove().then(() => res.json({ success: true })))
