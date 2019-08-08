@@ -25,9 +25,10 @@ class RecipeReviewCard extends Component {
     const { events } = this.state
 
     return (
-      <div>
+
+      <div className="row">
       
-       { events.map(({ id, name}) => (
+       { events.map(({ id, name, venue, price}) => (
       
       <Card className={classes.card}>
 
@@ -51,7 +52,7 @@ class RecipeReviewCard extends Component {
         ></CardMedia>
         <CardContent>
           <Typography component="p">
-          Join us for the annual developer festival of sessions.
+            {venue}
           </Typography>
         </CardContent>
 
@@ -63,6 +64,7 @@ class RecipeReviewCard extends Component {
 }
 
 const styles = theme => ({
+
   card: {
     maxWidth: 400,
   },
